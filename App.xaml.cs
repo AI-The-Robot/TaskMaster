@@ -10,4 +10,3 @@ namespace WPFProject;
 public partial class App : Application
 {
 }
-
