@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition>
+                <RowDefinition.Height>70</RowDefinition.Height>
+            </RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition>
+                <RowDefinition.Height>20</RowDefinition.Height>
+            </RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition>
+            </ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
+        </Grid.ColumnDefinitions>
     </Grid>
 </Window>
