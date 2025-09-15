@@ -9,11 +9,21 @@
         Title="MainWindow" Height="450" Width="500">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="70"/>
-            <RowDefinition />
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="200"/>
             <RowDefinition Height="20"/> 
         </Grid.RowDefinitions>
         
         <userControls:MenuBar></userControls:MenuBar>
+        
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition ></RowDefinition>
+            </Grid.RowDefinitions>
+            
+        </Grid>
     </Grid>
 </Window>
