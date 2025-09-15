@@ -17,13 +17,5 @@
             </MenuItem>
             <MenuItem Header="Edit" FontSize="16"></MenuItem>
         </Menu>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-                <ColumnDefinition Width="Auto"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Button Width="50" Margin="5"></Button>
-            <TextBox Width="150" Grid.Column="1" Margin="5"></TextBox>
-        </Grid>
     </Grid>
 </UserControl>
