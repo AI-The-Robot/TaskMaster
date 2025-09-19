@@ -8,4 +8,9 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+
+    private void DashboardButton_Click(object sender, RoutedEventArgs e)
+    {
+        
+    }
 }

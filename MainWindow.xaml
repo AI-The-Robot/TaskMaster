@@ -4,27 +4,19 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFProject"
-        xmlns:userControls="clr-namespace:WPFProject.View.UserControl"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="700"
+        Title="TaskMaster" Height="600" Width="900"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"></ColumnDefinition>
-            <ColumnDefinition Width="8*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"></RowDefinition>
-                <RowDefinition Height="8*"></RowDefinition>
-            </Grid.RowDefinitions>
+        <StackPanel Background="#f0f2f5">
             
-            <userControls:MenuBar Grid.Row="1"></userControls:MenuBar>
-            <TextBlock Grid.Row="0" Text="TASKMASTER" FontSize="23" VerticalAlignment="Center" FontFamily="Jetbrains Mono"
-                       FontWeight="Medium"></TextBlock>
-        </Grid>
+        </StackPanel>
         
-        <Rectangle Grid.Column="1" Fill="LightGray"></Rectangle>
+        <ContentControl Name="MainContentArea" Grid.Column="1"></ContentControl>
     </Grid>
 </Window>
