@@ -14,6 +14,17 @@
             <ColumnDefinition Width="8*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <userControls:MenuBar></userControls:MenuBar>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"></RowDefinition>
+                <RowDefinition Height="8*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <userControls:MenuBar Grid.Row="1"></userControls:MenuBar>
+            <TextBlock Grid.Row="0" Text="TASKMASTER" FontSize="23" VerticalAlignment="Center" FontFamily="Jetbrains Mono"
+                       FontWeight="Medium"></TextBlock>
+        </Grid>
+        
+        <Rectangle Grid.Column="1" Fill="LightGray"></Rectangle>
     </Grid>
 </Window>
