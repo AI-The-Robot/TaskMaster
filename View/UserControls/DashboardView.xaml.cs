@@ -5,28 +5,33 @@ using WPFProject.Data;
 using Task = System.Threading.Tasks.Task;
 using System.Linq;
 using System.Collections.ObjectModel;
+using Microsoft.EntityFrameworkCore;
 
 namespace WPFProject.View.UserControls;
 
 public partial class DashboardView : UserControl
 {
-    public ObservableCollection<Data.Task> AllTasks { get; set; }
+    private readonly TaskDataContext _context;
     public DashboardView()
     {
         InitializeComponent();
+        _context = new TaskDataContext();
 
         this.Loaded += DashboardView_Loaded;
     }
 
     private void DashboardView_Loaded(object sender, RoutedEventArgs e)
     {
-        AllTasks = DataManager.GetTasks();
+        _context.Tasks.Load();
         
-        var upcoming = new ObservableCollection<Data.Task>(AllTasks.Where(t => t.DueDate >= DateTime.Today && !t.IsCompleted));
+        var upcoming = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate >= DateTime.Today && !t.IsCompleted));
         
-        var overdue = new ObservableCollection<Data.Task>(AllTasks.Where(t => t.DueDate < DateTime.Today && !t.IsCompleted));
+        var overdue = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate < DateTime.Today && !t.IsCompleted));
 
         UpcomingTaskListView.ItemsSource = upcoming;
         OverdueTaskListView.ItemsSource = overdue;
+        
+        // _context.Tasks.Add(new Data.Task { Title = "Test Task", DueDate = DateTime.Today, IsCompleted = false });
+        // _context.SaveChanges();
     }
 }
