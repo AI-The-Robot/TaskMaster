@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using WPFProject.View.UserControls;
 
 namespace WPFProject;
 
@@ -7,10 +8,9 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-    }
-
-    private void DashboardButton_Click(object sender, RoutedEventArgs e)
-    {
         
+        DashboardView dashboardView = new DashboardView();
+
+        MainContentArea.Content = dashboardView;
     }
 }
