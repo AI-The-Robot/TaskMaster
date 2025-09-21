@@ -30,8 +30,26 @@ public partial class DashboardView : UserControl
 
         UpcomingTaskListView.ItemsSource = upcoming;
         OverdueTaskListView.ItemsSource = overdue;
+    }
+
+    private void NewTaskButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        var newTaskWindow = new NewTaskWindow(_context);
         
-        // _context.Tasks.Add(new Data.Task { Title = "Test Task", DueDate = DateTime.Today, IsCompleted = false });
-        // _context.SaveChanges();
+        newTaskWindow.ShowDialog();
+        
+        RefreshTaskLists();
+    }
+
+    private void RefreshTaskLists()
+    {
+        _context.Tasks.Load();
+        
+        var upcoming = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate >= DateTime.Today && !t.IsCompleted));
+        
+        var overdue = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate < DateTime.Today && !t.IsCompleted));
+
+        UpcomingTaskListView.ItemsSource = upcoming;
+        OverdueTaskListView.ItemsSource = overdue;
     }
 }

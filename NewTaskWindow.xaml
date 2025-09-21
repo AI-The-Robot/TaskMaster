@@ -1,0 +1,38 @@
+<Window x:Class="WPFProject.NewTaskWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:WPFProject"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime"
+        mc:Ignorable="d"
+        Title="New Task" Height="300" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Text="Create a New Task" FontSize="20" FontWeight="Bold"
+                   Margin="0, 0, 0, 10"></TextBlock>
+        
+        <TextBlock Grid.Row="1" Text="Title" Margin="0, 0, 0, 5"></TextBlock>
+        <TextBox Name="TitleTextBox" Grid.Row="2" Margin="0, 0, 0, 10"></TextBox>
+        
+        <TextBlock Grid.Row="3" Text="Project" Margin="0, 10, 0, 5"></TextBlock>
+        <TextBox Name="ProjectTextBox" Grid.Row="4" Margin="0, 0, 0, 10"></TextBox>
+        
+        <TextBlock Grid.Row="5" Text="Due Date:" Margin="0, 0, 0, 5"></TextBlock>
+        <DatePicker Name="DueDatePicker" Grid.Row="6" SelectedDate="{x:Static Member=System:DateTime.Today}"
+                    Margin="0, 0, 0, 10"></DatePicker>
+        
+        <Button Name="SaveButton" Grid.Row="7" Content="Save Task" Click="SaveButton_OnClick"
+                Margin="150, 20, 150, 0"></Button>
+    </Grid>
+</Window>
