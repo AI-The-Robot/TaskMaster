@@ -50,4 +50,9 @@ public partial class NewTaskWindow : Window
             MessageBox.Show(ex.Message, $"Error while saving task:", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
+
+    private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
 }
