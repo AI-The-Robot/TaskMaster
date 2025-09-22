@@ -17,19 +17,7 @@ public partial class DashboardView : UserControl
         InitializeComponent();
         _context = new TaskDataContext();
 
-        this.Loaded += DashboardView_Loaded;
-    }
-
-    private void DashboardView_Loaded(object sender, RoutedEventArgs e)
-    {
-        _context.Tasks.Load();
-        
-        var upcoming = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate >= DateTime.Today && !t.IsCompleted));
-        
-        var overdue = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate < DateTime.Today && !t.IsCompleted));
-
-        UpcomingTaskListView.ItemsSource = upcoming;
-        OverdueTaskListView.ItemsSource = overdue;
+        this.Loaded += (s,e) => RefreshAllData();
     }
 
     private void NewTaskButton_OnClick(object sender, RoutedEventArgs e)
@@ -38,15 +26,37 @@ public partial class DashboardView : UserControl
         
         newTaskWindow.ShowDialog();
         
+        RefreshAllData();
+    }
+
+    private void RefreshAllData()
+    {
+        _context.Tasks.Load();
+
+        UpdateOverviewMetrics();
+        
         RefreshTaskLists();
+    }
+
+    private void UpdateOverviewMetrics()
+    {
+        int tasksDueTodayCount = _context.Tasks.Local.Count(t => t.DueDate.Date == System.DateTime.Today.Date && !t.IsCompleted);
+        
+        int overdueTasksCount = _context.Tasks.Local.Count(t => t.DueDate.Date < System.DateTime.Today.Date && !t.IsCompleted);
+        
+        int completedTodayCount = _context.Tasks.Local.Count(t => t.DueDate.Date == System.DateTime.Today.Date && t.IsCompleted);
+        
+        int upcomingTasksCount = _context.Tasks.Local.Count(t => t.DueDate.Date > System.DateTime.Today.Date && !t.IsCompleted);
+
+        TasksDueTodayTextBlock.Text = tasksDueTodayCount.ToString();
+        OverdueTasksTextBlock.Text = overdueTasksCount.ToString();
+        CompletedTodayTextBlock.Text = completedTodayCount.ToString();
+        UpcomingTasksTextBlock.Text = upcomingTasksCount.ToString();
     }
 
     private void RefreshTaskLists()
     {
-        _context.Tasks.Load();
-        
         var upcoming = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate >= DateTime.Today && !t.IsCompleted));
-        
         var overdue = new ObservableCollection<Data.Task>(_context.Tasks.Local.Where(t => t.DueDate < DateTime.Today && !t.IsCompleted));
 
         UpcomingTaskListView.ItemsSource = upcoming;
