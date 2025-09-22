@@ -12,10 +12,10 @@ namespace WPFProject.View.UserControls;
 public partial class DashboardView : UserControl
 {
     private readonly TaskDataContext _context;
-    public DashboardView()
+    public DashboardView(TaskDataContext context)
     {
         InitializeComponent();
-        _context = new TaskDataContext();
+        _context = context;
 
         this.Loaded += (s,e) => RefreshAllData();
     }
