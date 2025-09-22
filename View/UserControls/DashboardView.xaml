@@ -11,6 +11,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
@@ -27,10 +28,36 @@
             <TextBlock Text="Overview" FontSize="20" FontWeight="SemiBold" FontFamily="jetbrains mono"></TextBlock>
         </StackPanel>
         
-        <TextBlock Grid.Row="2" Text="Upcoming Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 0, 0, 10"
+        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 0, 0, 20">
+            <Border BorderBrush="#dcdcdc" BorderThickness="1" CornerRadius="5" Padding="10"
+                    Margin="0, 0, 15, 0" Width="150" Height="80">
+                <StackPanel>
+                    <TextBlock Text="Tasks Due Today" FontSize="12" Foreground="Gray"></TextBlock>
+                    <TextBlock Name="TasksDueTodayTextBlock" FontSize="24" FontWeight="Bold" Margin="0, 5, 0, 0"></TextBlock>
+                </StackPanel>
+            </Border>
+            
+            <Border BorderBrush="#dcdcdc" BorderThickness="1" CornerRadius="5" Padding="10"
+                    Margin="0, 0, 15, 0" Width="150" Height="80">
+                <StackPanel>
+                    <TextBlock Text="Overdue Tasks" FontSize="12" Foreground="Gray"></TextBlock>
+                    <TextBlock Name="OverdueTasksTextBlock" FontSize="24" FontWeight="Bold" Margin="0, 5, 0, 0"></TextBlock>
+                </StackPanel>
+            </Border>
+            
+            <Border BorderBrush="#dcdcdc" BorderThickness="1" CornerRadius="5" Padding="10"
+                    Margin="0, 0, 15, 0" Width="150" Height="80">
+                <StackPanel>
+                    <TextBlock Text="Completed Today" FontSize="12" Foreground="Gray"></TextBlock>
+                    <TextBlock Name="CompletedTodayTextBlock" FontSize="24" FontWeight="Bold" Margin="0, 5, 0, 0"></TextBlock>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        
+        <TextBlock Grid.Row="3" Text="Upcoming Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 0, 0, 10"
                    FontFamily="jetbrains mono"></TextBlock>
         
-        <ListView Name="UpcomingTaskListView" Grid.Row="3">
+        <ListView Name="UpcomingTaskListView" Grid.Row="4">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -41,9 +68,9 @@
             </ListView.ItemTemplate>
         </ListView>
         
-        <TextBlock Grid.Row="4" Text="Overdue Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 20, 0, 10"></TextBlock>
+        <TextBlock Grid.Row="5" Text="Overdue Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 20, 0, 10"></TextBlock>
         
-        <ListView Name="OverdueTaskListView" Grid.Row="5">
+        <ListView Name="OverdueTaskListView" Grid.Row="6">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
