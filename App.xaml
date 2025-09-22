@@ -4,6 +4,37 @@
              xmlns:local="clr-namespace:WPFProject"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+         <Style x:Key="NavButton" TargetType="Button">
+             <Setter Property="Background" Value="Transparent"></Setter>
+             <Setter Property="BorderThickness" Value="0"></Setter>
+             <Setter Property="HorizontalContentAlignment" Value="Left"></Setter>
+             <Setter Property="Padding" Value="10, 5"></Setter>
+             <Setter Property="FontSize" Value="14"></Setter>
+             <Setter Property="FontWeight" Value="SemiBold"></Setter>
+             <Setter Property="Foreground" Value="#333"></Setter>
+             <Setter Property="Margin" Value="0, 5"></Setter>
+             
+             <Setter Property="Template">
+                 <Setter.Value>
+                     <ControlTemplate TargetType="Button">
+                         <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="5">
+                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                               VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                               Margin="{TemplateBinding Padding}"></ContentPresenter>
+                         </Border>
+                     </ControlTemplate>
+                 </Setter.Value>
+             </Setter>
+             
+             <Style.Triggers>
+                 <Trigger Property="IsMouseOver" Value="True">
+                     <Setter Property="Background" Value="#e0e0e0"></Setter>
+                 </Trigger>
+                 <Trigger Property="IsPressed" Value="True">
+                     <Setter Property="Background" Value="#d0d0d0"></Setter>
+                 </Trigger>
+             </Style.Triggers>
+         </Style>
     </Application.Resources>
 </Application>
