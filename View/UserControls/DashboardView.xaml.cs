@@ -62,4 +62,51 @@ public partial class DashboardView : UserControl
         UpcomingTaskListView.ItemsSource = upcoming;
         OverdueTaskListView.ItemsSource = overdue;
     }
+
+    private async void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
+    {
+        var checkBox = sender as CheckBox;
+        
+        var task = checkBox.DataContext as Data.Task;
+
+        if (task != null)
+        {
+            task.IsCompleted = true;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                
+                RefreshAllData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to update task status: {ex.Message}", "Database Error");
+
+                task.IsCompleted = false;
+            }
+        }
+    }
+
+    private async void ToggleButton_OnUnchecked(object sender, RoutedEventArgs e)
+    {
+        var checkBox = sender as CheckBox;
+        var task = checkBox.DataContext as Data.Task;
+
+        if (task != null)
+        {
+            task.IsCompleted = false;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+                RefreshAllData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to update task status: {ex.Message}", "Database Error");
+                task.IsCompleted = true;
+            }
+        }
+    }
 }
