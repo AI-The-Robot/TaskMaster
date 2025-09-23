@@ -21,7 +21,8 @@
             <TextBlock Text="Dashboard" FontSize="28" FontWeight="Bold" Margin="0, 0, 10, 10"
                        FontFamily="jetbrains mono"></TextBlock>
             <Button Name="NewTaskButton" Content="+ New Task" Click="NewTaskButton_OnClick"
-                    Margin="350, 0, 0, 10" Width="80"></Button>
+                    Margin="370, 0, 0, 10" Style="{StaticResource NavButton}"
+                    Background="#f0f2f5" FontFamily="jetbrains mono regular"></Button>
         </StackPanel>
         
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0, 0, 0, 20">
@@ -65,7 +66,7 @@
         <TextBlock Grid.Row="3" Text="Upcoming Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 0, 0, 10"
                    FontFamily="jetbrains mono"></TextBlock>
         
-        <ListView Name="UpcomingTaskListView" Grid.Row="4">
+        <ListView Name="UpcomingTaskListView" Grid.Row="4" BorderBrush="#dcdcdc" BorderThickness="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>
@@ -73,8 +74,10 @@
                                   Margin="0, 0, 10, 0" Checked="ToggleButton_OnChecked"
                                   Unchecked="ToggleButton_OnUnchecked"></CheckBox>
                         <StackPanel>
-                            <TextBlock Text="{Binding Title}" FontWeight="SemiBold" FontSize="14"></TextBlock>
-                            <TextBlock Text="{Binding ProjectName}" Foreground="Gray" FontSize="12"></TextBlock>
+                            <TextBlock Text="{Binding Title}" FontWeight="SemiBold" FontSize="14"
+                                       Name="TitleTextBlock" FontFamily="jetbrains mono regular"></TextBlock>
+                            <TextBlock Text="{Binding ProjectName}" Foreground="Gray" FontSize="12"
+                                       Name="ProjectTextBlock" FontFamily="jetbrains mono regular"></TextBlock>
                         </StackPanel>
                     </DockPanel>
                 </DataTemplate>
@@ -83,7 +86,7 @@
         
         <TextBlock Grid.Row="5" Text="Overdue Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 20, 0, 10"></TextBlock>
         
-        <ListView Name="OverdueTaskListView" Grid.Row="6">
+        <ListView Name="OverdueTaskListView" Grid.Row="6" BorderBrush="#dcdcdc" BorderThickness="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <DockPanel>
