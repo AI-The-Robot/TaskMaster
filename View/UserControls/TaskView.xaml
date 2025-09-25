@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:WPFProject.View.UserControls"
              mc:Ignorable="d"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Background="Transparent">
     <Grid Margin="20">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
@@ -13,16 +13,18 @@
         </Grid.RowDefinitions>
         
         <TextBlock Text="All Tasks" FontSize="28" FontWeight="Bold" Margin="0, 0, 0,10"
-                   FontFamily="jetbrains mono regular"></TextBlock>
+                   FontFamily="jetbrains mono regular" Foreground="White"></TextBlock>
         
-        <DataGrid Name="TaskDataGrid" Grid.Row="1" IsReadOnly="True" SelectionMode="Single">
+        <DataGrid Name="TaskDataGrid" Grid.Row="1" IsReadOnly="True" SelectionMode="Single" Background="#2c2c2c"
+                  RowBackground="#2c2c2c">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Done" Binding="{Binding IsCompleted}"></DataGridCheckBoxColumn>
                 
                 <DataGridTemplateColumn Header="Title" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding Title}" Margin="5, 0" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Title}" Margin="5, 0" VerticalAlignment="Center"
+                                       Foreground="White">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock">
                                         <Style.Triggers>

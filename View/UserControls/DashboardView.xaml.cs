@@ -23,13 +23,13 @@ public partial class DashboardView : UserControl
     private void NewTaskButton_OnClick(object sender, RoutedEventArgs e)
     {
         var newTaskWindow = new NewTaskWindow(_context);
-        
+
         newTaskWindow.ShowDialog();
-        
+
         RefreshAllData();
     }
 
-    private void RefreshAllData()
+    public void RefreshAllData()
     {
         _context.Tasks.Load();
 

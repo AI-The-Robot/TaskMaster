@@ -8,6 +8,7 @@ namespace WPFProject;
 public partial class MainWindow : Window
 {
     private readonly TaskDataContext _context;
+
     public MainWindow()
     {
         InitializeComponent();
