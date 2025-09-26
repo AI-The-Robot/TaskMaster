@@ -44,7 +44,8 @@ public partial class DashboardView : UserControl
         
         int overdueTasksCount = _context.Tasks.Local.Count(t => t.DueDate.Date < System.DateTime.Today.Date && !t.IsCompleted);
         
-        int completedTodayCount = _context.Tasks.Local.Count(t => t.DueDate.Date == System.DateTime.Today.Date && t.IsCompleted);
+        int completedTodayCount = _context.Tasks.Local.Count(t => t.DueDate.Date >= System.DateTime.Today.Date && t.IsCompleted ||
+                                                                  t.DueDate.Date <= System.DateTime.Today.Date && t.IsCompleted);
         
         int upcomingTasksCount = _context.Tasks.Local.Count(t => t.DueDate.Date > System.DateTime.Today.Date && !t.IsCompleted);
 
@@ -70,9 +71,9 @@ public partial class DashboardView : UserControl
         var task = checkBox.DataContext as Data.Task;
 
         if (task != null)
-        {
+        { 
             task.IsCompleted = true;
-
+            
             try
             {
                 await _context.SaveChangesAsync();

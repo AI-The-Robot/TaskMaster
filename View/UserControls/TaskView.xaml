@@ -10,16 +10,17 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         
         <TextBlock Text="All Tasks" FontSize="28" FontWeight="Bold" Margin="0, 0, 0,10"
                    FontFamily="jetbrains mono regular" Foreground="White"></TextBlock>
         
-        <DataGrid Name="TaskDataGrid" Grid.Row="1" IsReadOnly="True" SelectionMode="Single" Background="#2c2c2c"
-                  RowBackground="#2c2c2c">
+        <DataGrid Name="TaskDataGrid" Grid.Row="1" Style="{DynamicResource DataGridStyle}"
+                  Margin="0, 0, 0, 20">
             <DataGrid.Columns>
                 <DataGridCheckBoxColumn Header="Done" Binding="{Binding IsCompleted}"></DataGridCheckBoxColumn>
-                
+        
                 <DataGridTemplateColumn Header="Title" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -39,7 +40,7 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
+        
                 <DataGridTextColumn Header="Project" Binding="{Binding ProjectName}" Width="*"></DataGridTextColumn>
                 <DataGridTextColumn Header="Due Date" Binding="{Binding DueDate, StringFormat='{}{0:d}'}"
                                     Width="*"></DataGridTextColumn>

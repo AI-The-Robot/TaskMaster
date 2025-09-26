@@ -6,22 +6,51 @@
         xmlns:local="clr-namespace:WPFProject"
         mc:Ignorable="d"
         Title="TaskMaster" Height="600" Width="950"
-        WindowStartupLocation="CenterScreen" Background="#222222">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200"></ColumnDefinition>
-            <ColumnDefinition Width="*"></ColumnDefinition>
-        </Grid.ColumnDefinitions>
+        WindowStartupLocation="CenterScreen" Background="#222222" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
+    <Border CornerRadius="10">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid Background="#2c2c2c" MouseDown="TitleBar_OnMouseDown">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock Text="TaskMaster" Foreground="White" VerticalAlignment="Center" FontWeight="Bold"
+                               Margin="10, 0"></TextBlock>
+                    
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="-" Click="MinimizeButton_OnClick" Style="{StaticResource TitleBarButton}"></Button>
+                        <Button Content="[]" Click="MaximizeButton_OnClick" Style="{StaticResource TitleBarButton}"></Button>
+                        <Button Content="X" Click="CloseButton_OnClick" Style="{StaticResource TitleBarButton}"></Button>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+            
+            <Grid Grid.Row="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
         
-        <StackPanel Margin="10">
-            <TextBlock Text="TaskMaster" FontSize="25" FontWeight="SemiBold" HorizontalAlignment="Center"
-                       Margin="0, 10, 0, 30" Foreground="White"></TextBlock>
-            <Button Name="DashboardButton" Content="Dashboard" Style="{StaticResource NavButton}"
-                    Click="DashboardButton_OnClick" Foreground="White"></Button>
-            <Button Name="TasksButton" Content="All Tasks" Style="{StaticResource NavButton}"
-                    Click="TasksButton_OnClick" Foreground="White"></Button>
-        </StackPanel>
+                    <StackPanel Margin="10">
+                        <TextBlock Text="TaskMaster" FontSize="25" FontWeight="SemiBold" HorizontalAlignment="Center"
+                                   Margin="0, 10, 0, 30" Foreground="White"></TextBlock>
+                        <Button Name="DashboardButton" Content="Dashboard" Style="{StaticResource NavButton}"
+                                Click="DashboardButton_OnClick" Foreground="White"></Button>
+                        <Button Name="TasksButton" Content="All Tasks" Style="{StaticResource NavButton}"
+                                Click="TasksButton_OnClick" Foreground="White"></Button>
+                    </StackPanel>
         
-        <ContentControl Name="MainContentArea" Grid.Column="1"></ContentControl>
-    </Grid>
+                    <ContentControl Name="MainContentArea" Grid.Column="1"></ContentControl>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Border>
 </Window>

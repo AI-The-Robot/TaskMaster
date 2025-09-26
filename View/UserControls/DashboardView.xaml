@@ -19,15 +19,14 @@
         
         <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0, 0, 0, 10">
             <TextBlock Text="Dashboard" FontSize="28" FontWeight="Bold" Margin="0, 0, 10, 10"
-                       FontFamily="jetbrains mono" Foreground="White"></TextBlock>
+                       Foreground="White"></TextBlock>
             <Button Name="NewTaskButton" Content="+ New Task" Click="NewTaskButton_OnClick"
                     Margin="370, 0, 0, 10" Style="{StaticResource NavButton}"
-                    Background="Blue" FontFamily="jetbrains mono regular"></Button>
+                    Background="Blue"></Button>
         </StackPanel>
         
         <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0, 0, 0, 20">
-            <TextBlock Text="Overview" FontSize="20" FontWeight="SemiBold" FontFamily="jetbrains mono"
-                       Foreground="White"></TextBlock>
+            <TextBlock Text="Overview" FontSize="20" FontWeight="SemiBold" Foreground="White"></TextBlock>
         </StackPanel>
         
         <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0, 0, 0, 20">
@@ -73,9 +72,9 @@
         </StackPanel>
         
         <TextBlock Grid.Row="3" Text="Upcoming Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 0, 0, 10"
-                   FontFamily="jetbrains mono" Foreground="White"></TextBlock>
+                   Foreground="White"></TextBlock>
         
-        <ListView Name="UpcomingTaskListView" Grid.Row="4" BorderBrush="#dcdcdc" BorderThickness="1"
+        <ListView Name="UpcomingTaskListView" Grid.Row="4" BorderBrush="#dcdcdc" BorderThickness="0"
                   Background="#2c2c2c">
             <ListView.ItemTemplate>
                 <DataTemplate>
@@ -85,10 +84,9 @@
                                   Unchecked="ToggleButton_OnUnchecked"></CheckBox>
                         <StackPanel>
                             <TextBlock Text="{Binding Title}" FontWeight="SemiBold" FontSize="14"
-                                       Name="TitleTextBlock" FontFamily="jetbrains mono regular"
-                                       Foreground="White"></TextBlock>
+                                       Name="TitleTextBlock" Foreground="White"></TextBlock>
                             <TextBlock Text="{Binding ProjectName}" Foreground="Wheat" FontSize="12"
-                                       Name="ProjectTextBlock" FontFamily="jetbrains mono regular"></TextBlock>
+                                       Name="ProjectTextBlock"></TextBlock>
                         </StackPanel>
                     </DockPanel>
                 </DataTemplate>
@@ -98,7 +96,7 @@
         <TextBlock Grid.Row="5" Text="Overdue Tasks" FontSize="20" FontWeight="SemiBold" Margin="0, 20, 0, 10"
                    Foreground="White"></TextBlock>
         
-        <ListView Name="OverdueTaskListView" Grid.Row="6" BorderBrush="#dcdcdc" BorderThickness="1"
+        <ListView Name="OverdueTaskListView" Grid.Row="6" BorderBrush="#dcdcdc" BorderThickness="0"
                   Background="#2c2c2c">
             <ListView.ItemTemplate>
                 <DataTemplate>
