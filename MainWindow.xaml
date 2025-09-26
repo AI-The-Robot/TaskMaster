@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:WPFProject"
         mc:Ignorable="d"
         Title="TaskMaster" Height="600" Width="950"
-        WindowStartupLocation="CenterScreen" Background="#222222" WindowStyle="None" AllowsTransparency="True" ResizeMode="CanResizeWithGrip">
+        WindowStartupLocation="CenterScreen" Background="#222222" WindowStyle="None" AllowsTransparency="True"
+        ResizeMode="CanResizeWithGrip">
     <Border CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>

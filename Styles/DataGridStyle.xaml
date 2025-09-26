@@ -18,7 +18,28 @@
     </Style>
     
     <Style TargetType="DataGridRow">
-        <Setter Property="Background" Value="#34495e"></Setter>
-        <Setter Property="Background" Value="#34495e"></Setter>
+        <Setter Property="Background" Value="#2c2c2c"></Setter>
+        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Height" Value="35"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+    
+    <Style TargetType="DataGridCell">
+        <Setter Property="Background" Value="Transparent"></Setter>
+        <Setter Property="BorderBrush" Value="Transparent"></Setter>
+        <Setter Property="Padding" Value="5, 0"></Setter>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="#42586e"></Setter>
+                <Setter Property="BorderBrush" Value="#42586e"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Trigger>
+            
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#3a4a5a"></Setter>
+                <Setter Property="BorderBrush" Value="#3a4a5a"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>
