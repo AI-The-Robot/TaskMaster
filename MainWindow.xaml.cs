@@ -1,10 +1,10 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using WPFProject.Data;
-using WPFProject.View.UserControls;
+using TaskMaster.Data;
+using TaskMaster.View.UserControls;
 
-namespace WPFProject;
+namespace TaskMaster;
 
 public partial class MainWindow : Window
 {

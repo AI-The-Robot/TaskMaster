@@ -1,8 +1,8 @@
 using System.Windows;
-using WPFProject.Data;
+using TaskMaster.Data;
 using Task = System.Threading.Tasks.Task;
 
-namespace WPFProject;
+namespace TaskMaster;
 
 public partial class NewTaskWindow : Window
 {
@@ -27,7 +27,7 @@ public partial class NewTaskWindow : Window
             return;
         }
 
-        var newTask = new Data.Task
+        var newTask = new Data.Task()
         {
             Title = title,
             ProjectName = project,

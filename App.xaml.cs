@@ -1,8 +1,8 @@
 ﻿using System.Windows;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using WPFProject.Data;
+using TaskMaster.Data;
 
-namespace WPFProject;
+namespace TaskMaster;
 
 public partial class App : Application
 {

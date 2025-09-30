@@ -1,9 +1,9 @@
 using System.Windows;
 using System.Windows.Controls;
 using Microsoft.EntityFrameworkCore;
-using WPFProject.Data;
+using TaskMaster.Data;
 
-namespace WPFProject.View.UserControls;
+namespace TaskMaster.View.UserControls;
 
 public partial class TaskView : UserControl
 {

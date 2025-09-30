@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFProject", "WPFProject.csproj", "{9A07BDF6-FEE8-4B9B-8C49-7530C805E7EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskMaster", "TaskMaster.csproj", "{9A07BDF6-FEE8-4B9B-8C49-7530C805E7EA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

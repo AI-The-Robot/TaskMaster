@@ -1,6 +1,6 @@
 using System.Collections.ObjectModel;
 
-namespace WPFProject.Data;
+namespace TaskMaster.Data;
 
 public class DataManager
 {

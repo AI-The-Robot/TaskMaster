@@ -1,6 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace WPFProject.Data;
+namespace TaskMaster.Data;
 
 public class TaskDataContext : DbContext
 {

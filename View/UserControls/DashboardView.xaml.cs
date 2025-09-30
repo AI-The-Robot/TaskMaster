@@ -1,13 +1,13 @@
 using System.Collections.ObjectModel;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using WPFProject.Data;
-using Task = System.Threading.Tasks.Task;
-using System.Linq;
-using System.Collections.ObjectModel;
 using Microsoft.EntityFrameworkCore;
+using TaskMaster.Data;
+using Task = System.Threading.Tasks.Task;
 
-namespace WPFProject.View.UserControls;
+namespace TaskMaster.View.UserControls;
 
 public partial class DashboardView : UserControl
 {

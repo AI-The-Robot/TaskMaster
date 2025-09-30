@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace WPFProject.Data;
+namespace TaskMaster.Data;
 
 public class Task
 {
